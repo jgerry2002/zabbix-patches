@@ -68,6 +68,7 @@ Description: Adds support of PK(itemid,clock) for history, history_uint tables
 +	int		isPK = 0;
 +	char*	history_tab="history";
 +	char*	history_uint_tab="history_uint";
++ char* history_text_tab="history_text";
 +
  	const ZBX_FIELD	*field;
  	char		*sql_command, delim[2] = {',', '('};
@@ -77,9 +78,9 @@ Description: Adds support of PK(itemid,clock) for history, history_uint tables
  		return SUCCEED;
  
 +#ifdef HAVE_MYSQL
-+	if(strcmp(self->table->table,history_tab) == 0 || strcmp(self->table->table,history_uint_tab) == 0)
++	if(strcmp(self->table->table,history_tab) == 0 || strcmp(self->table->table,history_uint_tab) == 0 || strcmp(self->table->table,history_text_tab) )
 +		isPK = 1;
-+	zabbix_log(LOG_LEVEL_DEBUG, "zbx_db_insert_execute: in HAVE_MYSQL: history_tab=[%s], history_uint_tab=[%s], isPK=[%d]", history_tab,history_uint_tab,isPK);
++	zabbix_log(LOG_LEVEL_DEBUG, "zbx_db_insert_execute: in HAVE_MYSQL: history_tab=[%s], history_uint_tab=[%s], history_text_tab=[%s], isPK=[%d]", history_tab,history_uint_tab,history_text_tab,isPK);
 +#endif
 +
 +	zabbix_log(LOG_LEVEL_DEBUG, "zbx_db_insert_execute: table=[%s], isPK=[%d]", self->table->table, isPK);
