@@ -33,5 +33,5 @@ id|type|details
 7|ltr|3
 
 8|name|ZBXNEXT-3089
-8|desc|Adds support of PK(itemid,clock) for history, history_uint tables. Exact version: Zabbix v3.2.4
+8|desc|Adds support of PK(itemid,clock) for history, history_uint, history_str, history_text, and history_log tables. Versions: Zabbix v3.4.x
 8|ltr|1
